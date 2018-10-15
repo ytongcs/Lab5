@@ -1,0 +1,45 @@
+---
+title: "Lab5"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Modify your function from the Problem 2 (Lab5 Activity). The function should simulate N rounds of the game (instead of just one) and return the proportion of times you win the bet. Run the function with N = 1000 and 10000.
+
+
+```{r}
+gambling <- function(n){
+  count <- 0
+  for (i in 1:n) {
+  x <- replicate(4, sample(1:6, size = 1, replace = T))
+  count <- count + ifelse(sum(x == 4) >= 1,1,0)
+  }
+  return(count/n)
+}
+gambling(1000)
+gambling(10000)
+
+```
+
+## 2. Write a function that will find the smallest element of a given vector (built-in min() is not allowed). Your function should return the smallest element and index of the smallest element. Ex. vector is (1, 4, 2, 0, 5), then the smallest element - 0 and index is 4.
+
+```{r}
+find_min <- function(vec){
+  min <- vec[1]
+  for (i in 1:length(vec)){
+  if(vec[i] < min)
+    min <- vec[i]
+  }
+  return(min)
+}
+
+vec <- c(1, 2, 7, 10, 0, -3, 2.4)
+find_min(vec)
+```
+
+
+
+
