@@ -30,13 +30,14 @@ gambling(10000)
 find_min <- function(vec){
   min <- vec[1]
   for (i in 1:length(vec)){
-  if(vec[i] < min)
+  if(vec[i] < min){
     min <- vec[i]
   }
-  return(min)
+  }
+  cat(paste0("The smallest element is ", min ," and the index is ", which(vec==min),". "))
 }
 
-vec <- c(1, 2, 7, 10, 0, -3, 2.4)
+vec <- c(1, 2, 7, 10, 0, -1, 2.4)
 find_min(vec)
 ```
 
